@@ -1,0 +1,88 @@
+<!--<meta charset="utf-8" xmlns="http://www.w3.org/1999/html">-->
+<!--<a href="https://www.freepik.com/free-photo/food-background-food-concept-with-various-tasty-fresh-ingredients-for-cooking-italian-food-ingredients-view-from-above-with-copy-space_1159929.htm"></a>-->
+<!--<div class="container" xmlns="http://www.w3.org/1999/html">-->
+  <!--<div class="card card-container">-->
+    <!--<img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />-->
+    <!--<p id="profile-name" class="profile-name-card"></p>-->
+        <!--<div class="container">-->
+      <!--<div class="row">-->
+        <!--<div class="col-xl-3 col-sm-3">-->
+          <!--<form (ngSubmit)="onSignin()" #f="ngForm">-->
+            <!--<div-->
+              <!--id="user-data"-->
+              <!--ngModelGroup="userData"-->
+              <!--#userData="ngModelGroup">-->
+                <!--<div class="form-group">-->
+                <!--<label for="email">Email</label>-->
+                <!--<input-->
+                  <!--type="text"-->
+                  <!--id="email"-->
+                  <!--class="form-control"-->
+                  <!--ngModel-->
+                  <!--name="email"-->
+                  <!--email-->
+                  <!--required-->
+                  <!--#email="ngModel">-->
+                <!--<span class="help-block" *ngIf="!email.valid && email.touched">Please enter a valid email!</span>-->
+              <!--</div>-->
+              <!--<div class="form-group">-->
+                <!--<label for="password">PassWord</label>-->
+                <!--<input-->
+                  <!--type="password"-->
+                  <!--id="password"-->
+                  <!--ngModel-->
+                  <!--name="password"-->
+                  <!--required-->
+                  <!--class="form-control"-->
+                  <!--#password="ngModel">-->
+
+                <!--<p *ngIf="userData.touched">Please Enter the password. </p>-->
+                <!--<p *ngIf="!userData.valid">User Data is invalid!</p>-->
+              <!--</div>-->
+
+            <!--&lt;!&ndash;<p *ngIf="!userData.valid && userData.touched">User Data is invalid!</p>&ndash;&gt;-->
+
+            <!--<button-->
+              <!--class="btn btn-primary"-->
+              <!--type="submit"-->
+              <!--[disabled]="!f.valid">Sign in</button>-->
+            <!--</div>-->
+
+    <!--</form>-->
+      <!--<div class="row" *ngIf="submitted">-->
+        <!--<div class="col-xs-12">-->
+          <!--<h2 size="30 px" > Welcome! </h2>-->
+          <!--&lt;!&ndash;<p> Email= {{user.email}}</p>&ndash;&gt;-->
+          <!--&lt;!&ndash;<p>Password={{user.password}} </p>&ndash;&gt;-->
+        <!--</div>-->
+
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+  <!--</div>-->
+  <!--</div>-->
+<!--</div>-->
+
+
+
+
+<div class="row">
+  <div class="col-xs-6 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+    <form (ngSubmit)="onSignIn(f)" #f="ngForm">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" class="form-control" ngModel required #email="ngModel">
+        <span *ngIf="email.invalid && email.touched" class="help-block">Email is required!</span>-->
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" class="form-control" ngModel required minlength="6" #password="ngModel">
+        <div *ngIf="password.invalid && password.touched">
+          <span *ngIf="password.errors['minlength']" class="help-block">Password should be at least {{ password.errors['minlength'].requiredLength }} characters!</span>-->
+          <span *ngIf="password.errors['required']" class="help-block">Password is required!</span>
+        </div>
+      </div>
+      <button [disabled]="f.invalid" class="btn btn-primary" type="submit">Sign In</button>
+    </form>
+  </div>
+</div>
